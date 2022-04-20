@@ -23,7 +23,7 @@ async function main() {
     cardInner.classList.add("flip-card-inner")
 
     const cardImage = document.createElement("img")
-    cardImage.src = "/harrypotterback.jpg"
+    cardImage.src = "./harrypotterback.jpg"
     cardImage.classList.add("flip-card-front")
 
     const cardImageFlipped = document.createElement("img")
