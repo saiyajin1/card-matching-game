@@ -1,3 +1,7 @@
+html{
+  height: 100%;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -8,10 +12,14 @@ body {
   background-color: #bbb;
 }
 
+h1{
+  text-align: center;
+}
 
 .container {
   width: inherit;
   max-width: 355px;
+  height: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -22,7 +30,7 @@ body {
   background-color: transparent;
   width: 30%;
   max-width: 170px;
-  height: 115px;
+  height: 20%;
   perspective: 1000px;
 }
 
