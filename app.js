@@ -1,6 +1,6 @@
 async function main() {
   const characterData = await fetch(
-    "http://hp-api.herokuapp.com/api/characters"
+    "https://hp-api.herokuapp.com/api/characters"
   )
     .then((response) => response.json())
     .then((data) => {
