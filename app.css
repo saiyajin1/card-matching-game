@@ -22,8 +22,7 @@ body {
   background-color: transparent;
   width: 30%;
   max-width: 170px;
-  height: 300px;
-  max-height: 170px;
+  height: 115px;
   perspective: 1000px;
 }
 
