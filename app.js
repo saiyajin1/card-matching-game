@@ -62,39 +62,44 @@ function buildDeck(array, count = 6) {
 }
 
 function onclickhandler(event, deckSize) {
-  event.target.parentNode.classList.add("card-guessing")
-
-  if (document.querySelectorAll(".card-guessing").length === 2) {
-    document.querySelector(".backdrop").classList.add("visible")
+  if (
+    !event.target.parentNode.classList.contains("card-guessing") &&
+    !event.target.parentNode.classList.contains("container") &&
+    !event.target.parentNode.classList.contains("card-correct")&&
+    event.target.classList.contains("flip-card-front")
+  ) {
+    event.target.parentNode.classList.add("card-guessing")
 
     const guessedCards = document.querySelectorAll(".card-guessing")
-    const firstCard = guessedCards[0]
-    const secondCard = guessedCards[1]
-    const firstCardImage = firstCard.querySelector(".flip-card-back")
-    const secondCardImage = secondCard.querySelector(".flip-card-back")
+    if (guessedCards.length == 2) {
+      const firstCard = guessedCards[0]
+      const secondCard = guessedCards[1]
+      const firstCardImage = firstCard.querySelector(".flip-card-back")
+      const secondCardImage = secondCard.querySelector(".flip-card-back")
 
-    if (firstCardImage.src === secondCardImage.src) {
-      firstCard.classList.add("card-correct")
-      secondCard.classList.add("card-correct")
-      firstCard.classList.remove("card-guessing")
-      secondCard.classList.remove("card-guessing")
-      document.querySelector(".backdrop").classList.remove("visible")
-    } else {
-      setTimeout(() => {
+      if (firstCardImage.src === secondCardImage.src) {
+        firstCard.classList.add("card-correct")
+        secondCard.classList.add("card-correct")
         firstCard.classList.remove("card-guessing")
         secondCard.classList.remove("card-guessing")
         document.querySelector(".backdrop").classList.remove("visible")
-      }, 1000)
-    }
+      } else {
+        setTimeout(() => {
+          firstCard.classList.remove("card-guessing")
+          secondCard.classList.remove("card-guessing")
+          document.querySelector(".backdrop").classList.remove("visible")
+        }, 1000)
+      }
 
-    if (document.querySelectorAll(".card-correct").length === deckSize) {
-      document.querySelector("h1").innerHTML = "You Win!"
-      setTimeout(() => {
-        document.querySelector("h1").innerHTML = "Find Matching Cards"
-        const cardGame = document.querySelector(".card-game")
-        cardGame.innerHTML = ""
-        main()
-      }, 5000)
+      if (document.querySelectorAll(".card-correct").length === deckSize) {
+        document.querySelector("h1").innerHTML = "You Win!"
+        setTimeout(() => {
+          document.querySelector("h1").innerHTML = "Find Matching Cards"
+          const cardGame = document.querySelector(".card-game")
+          cardGame.innerHTML = ""
+          main()
+        }, 5000)
+      }
     }
   }
 }
