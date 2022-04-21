@@ -1,4 +1,5 @@
 async function main() {
+  
   const characterData = await fetch(
     "https://hp-api.herokuapp.com/api/characters"
   )
@@ -65,7 +66,7 @@ function onclickhandler(event, deckSize) {
   if (
     !event.target.parentNode.classList.contains("card-guessing") &&
     !event.target.parentNode.classList.contains("container") &&
-    !event.target.parentNode.classList.contains("card-correct")&&
+    !event.target.parentNode.classList.contains("card-correct") &&
     event.target.classList.contains("flip-card-front")
   ) {
     event.target.parentNode.classList.add("card-guessing")
@@ -76,6 +77,7 @@ function onclickhandler(event, deckSize) {
       const secondCard = guessedCards[1]
       const firstCardImage = firstCard.querySelector(".flip-card-back")
       const secondCardImage = secondCard.querySelector(".flip-card-back")
+      document.querySelector(".backdrop").classList.add("visible")
 
       if (firstCardImage.src === secondCardImage.src) {
         firstCard.classList.add("card-correct")
@@ -103,4 +105,5 @@ function onclickhandler(event, deckSize) {
     }
   }
 }
+
 main()

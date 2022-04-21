@@ -1,5 +1,6 @@
 html{
   height: 100%;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
@@ -32,6 +33,9 @@ h1{
   max-width: 170px;
   height: 20%;
   perspective: 1000px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .flip-card-inner {
@@ -76,6 +80,8 @@ h1{
   width: 100%;
   background-color: rgba(0, 0, 0, 0);
   position: absolute;
+  top: 0;
+  left: 0;
   display: none;
   z-index: 1;
 }
